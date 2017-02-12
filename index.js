@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 const VALIDATION_TOKEN = (process.env.MESSENGER_VALIDATION_TOKEN) ?
   (process.env.MESSENGER_VALIDATION_TOKEN) :
-  'alex_the_bot';
+  'alex';
 
 
 // Index route
@@ -25,6 +25,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook', function(req, res) {
+  console.log('Validation token : ', VALIDATION_TOKEN);
   if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
