@@ -32,7 +32,7 @@ app.get('/webhook/', function (req, res) {
 });
 
 app.post('/webhook', function(req, res){
-	console.log(req.body);
+	console.log(req.body.entry[0].messaging);
 });
 
 // Spin up the server
