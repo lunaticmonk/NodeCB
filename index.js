@@ -20,9 +20,9 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-	console.log(req.body);
-    if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === 'alex_the_bot') {
+	// console.log(req.body);
+    if (req.query['hub.mode'] == 'subscribe' &&
+      req.query['hub.verify_token'] == 'alex_the_bot') {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
