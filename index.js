@@ -15,15 +15,20 @@ app.use(bodyParser.json())
 
 // Index route
 app.get('/', function (req, res) {
-    res.send('Hello world, I am a chat bot')
-})
-
-// for Facebook verification
-app.get('/webhook/', function (req, res) {
+    // res.send('Hello world, I am a chat bot')
     if (req.query['hub.verify_token'] == 'alex_the_bot') {
         res.send(req.query['hub.challenge'])
     }
     res.send('Error, wrong token')
+})
+
+// for Facebook verification
+app.get('/webhook/', function (req, res) {
+    // if (req.query['hub.verify_token'] == 'alex_the_bot') {
+    //     res.send(req.query['hub.challenge'])
+    // }
+    // res.send('Error, wrong token')
+    res.send('previous webhooks used to be here.')
 })
 
 // Spin up the server
