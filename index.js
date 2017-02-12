@@ -20,11 +20,7 @@ const VALIDATION_TOKEN = (process.env.MESSENGER_VALIDATION_TOKEN) ?
 
 // Index route
 app.get('/', function (req, res) {
-	res.send('Hello World! This is Alex.');
-});
-
-// for Facebook verification
-app.get('/webhook', function(req, res) {
+	// res.send('Hello World! This is Alex.');
   console.log('Validation token : ', VALIDATION_TOKEN);
   console.log(req.query['hub.mode']);
   console.log(req.query['hub.verify_token']);
@@ -35,10 +31,15 @@ app.get('/webhook', function(req, res) {
   } else {
     console.error("Failed validation. Make sure the validation tokens match.");
     res.sendStatus(403);          
-  }  
+  }
 });
 
-app.post('/webhook', function(req, res){
+// for Facebook verification
+// app.get('/webhook/', function(req, res) {
+    
+// });
+
+app.post('/', function(req, res){
 	console.log(req.body);
 });
 
