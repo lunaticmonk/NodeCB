@@ -20,10 +20,8 @@ const VALIDATION_TOKEN = (process.env.MESSENGER_VALIDATION_TOKEN) ?
 
 // Index route
 app.get('/', function (req, res) {
-	// res.send('Hello World! This is Alex.');
-  console.log('Validation token : ', VALIDATION_TOKEN);
-  console.log(req.query['hub.mode']);
-  console.log(req.query['hub.verify_token']);
+  console.log(req.query);
+  // console.log(req.query['hub.verify_token']);
   if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
