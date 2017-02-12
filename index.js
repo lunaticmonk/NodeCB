@@ -13,16 +13,20 @@ app.use(bodyParser.urlencoded({extended: false}));
 // Process application/json
 app.use(bodyParser.json());
 
+const VALIDATION_TOKEN = (process.env.MESSENGER_VALIDATION_TOKEN) ?
+  (process.env.MESSENGER_VALIDATION_TOKEN) :
+  'alex_the_bot';
+
+
 // Index route
 app.get('/', function (req, res) {
 	res.send('Hello World! This is Alex.');
 });
 
 // for Facebook verification
-app.get('/webhook/', function (req, res) {
-	// console.log(req.body);
-    if (req.query['hub.mode'] == 'subscribe' &&
-      req.query['hub.verify_token'] == 'alex_the_bot') {
+app.get('/webhook', function(req, res) {
+  if (req.query['hub.mode'] === 'subscribe' &&
+      req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
@@ -32,7 +36,7 @@ app.get('/webhook/', function (req, res) {
 });
 
 app.post('/webhook', function(req, res){
-	console.log(req.body.entry[0].messaging);
+	console.log(req.body);
 });
 
 // Spin up the server
