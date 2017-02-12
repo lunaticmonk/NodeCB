@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === 'alex') {
+    if (req.query['hub.verify_token'] == 'alex_the_bot') {
         res.send(req.query['hub.challenge'])
     }
     res.send('Error, wrong token')
