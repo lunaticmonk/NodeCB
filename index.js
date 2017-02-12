@@ -15,11 +15,14 @@ app.use(bodyParser.json());
 
 // Index route
 app.get('/', function (req, res) {
-    // res.send('Hello world, I am a chat bot')
-    if (req.query['hub.verify_token'] == 'alex_the_bot') {
-        res.send(req.query['hub.challenge'])
-    }
-    res.send('Error, wrong token');
+    if (req.query['hub.mode'] === 'subscribe' &&
+      req.query['hub.verify_token'] === 'alex_the_bot') {
+    console.log("Validating webhook");
+    res.status(200).send(req.query['hub.challenge']);
+  } else {
+    console.error("Failed validation. Make sure the validation tokens match.");
+    res.sendStatus(403);          
+  }  
 })
 
 // for Facebook verification
