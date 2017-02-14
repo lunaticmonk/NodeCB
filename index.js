@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 // for Facebook verification
 app.get('/webhook', function(req, res) {
     // console.log(req.query['hub.verify_token']);
-  if (req.query['hub.verify_token'] === VALIDATION_TOKEN) {
+  if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
@@ -38,7 +38,7 @@ app.post('/webhook', function(req, res){
 	// console.log(req.body);
   var data = req.body;
   console.log(data.object);
-  console.log(data.entry[0].messaging.event.message);
+  // console.log(data.entry[0].messaging.event.message);
 
   // Make sure this is a page subscription
   if (data.object === 'page') {
