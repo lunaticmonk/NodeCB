@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 });
 
 // for Facebook verification
-app.get('/webhook/', function(req, res) {
+app.get('/webhook', function(req, res) {
     // console.log(req.query['hub.verify_token']);
   if (req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
