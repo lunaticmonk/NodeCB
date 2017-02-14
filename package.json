@@ -2,7 +2,7 @@
   "name": "nodechatbot",
   "version": "1.0.0",
   "description": "",
-  "start": "node index.js"
+  "start": "node index.js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
