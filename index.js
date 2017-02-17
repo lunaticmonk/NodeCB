@@ -78,13 +78,13 @@ app.post('/webhook', function(req, res){
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event.sender.id);
-          util.sendTextMessage(event.sender.id, 'received');
+          utility.sendTextMessage(event.sender.id, 'received');
         } else {
           console.log("Webhook received unknown event: ", event);
         }
       });
     });
-
+    
     // Assume all went well.
     //
     // You must send back a 200, within 20 seconds, to let us know
