@@ -1,1 +1,7 @@
-*node_modules
+logs
+*.log
+pids
+node_modules
+.npm
+*.dat
+config
