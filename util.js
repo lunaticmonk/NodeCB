@@ -1,5 +1,8 @@
 const request = require('request');
-
+const PAGE_ACCESS_TOKEN = (process.env.MESSENGER_PAGE_ACCESS_TOKEN) ?
+  (process.env.MESSENGER_PAGE_ACCESS_TOKEN) :
+  config.pageAccessToken;
+  
 const sendTextMessage = function(receipentID, messageText) {
 	var messageData = {
 		receipent: {
