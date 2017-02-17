@@ -37,4 +37,4 @@ function callSendAPI(messageData) {
 }
 
 
-module.exports = sendTextMessage;
+module.exports.sendTextMessage = sendTextMessage;
