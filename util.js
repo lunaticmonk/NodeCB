@@ -1,5 +1,5 @@
 const sendTextMessage = function(receipentID, messageText) {
-	var messgeData = {
+	var messageData = {
 		receipent: {
 			id: receipentID
 		},
