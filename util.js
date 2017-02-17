@@ -5,10 +5,10 @@ const PAGE_ACCESS_TOKEN = (process.env.MESSENGER_PAGE_ACCESS_TOKEN) ?
   (process.env.MESSENGER_PAGE_ACCESS_TOKEN) :
   config.pageAccessToken;
 
-const sendTextMessage = function(receipentID, messageText) {
+const sendTextMessage = function(recipientID, messageText) {
 	var messageData = {
-		receipent: {
-			id: receipentID
+		recipient: {
+			id: recipientID
 		},
 		message: {
 			text: messageText,
