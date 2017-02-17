@@ -1,6 +1,4 @@
-const sendTextMessage;
-
-sendTextMessage.exports = function(receipentID, messageText) {
+const sendTextMessage = function(receipentID, messageText) {
 	var messgeData = {
 		receipent: {
 			id: receipentID
@@ -37,3 +35,5 @@ function callSendAPI(messageData) {
     }
   });  
 }
+
+module.exports = sendTextMessage;
