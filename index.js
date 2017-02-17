@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
+const utility = require('./util');
 const config = require('./config.json');
 const https = require('https');
 const app = express();
@@ -77,7 +78,7 @@ app.post('/webhook', function(req, res){
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event.sender.id);
-          sendTextMessage(event.sender.id, 'received');
+          util.sendTextMessage(event.sender.id, 'received');
         } else {
           console.log("Webhook received unknown event: ", event);
         }
