@@ -44,6 +44,7 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
 // Index route
 app.get('/', function (req, res) {
   res.status(200).send('ok');
+  console.log(config);
 });
 
 // for Facebook verification
