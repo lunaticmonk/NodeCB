@@ -84,7 +84,6 @@ app.post('/webhook', function(req, res){
         }
       });
     });
-    
     // Assume all went well.
     //
     // You must send back a 200, within 20 seconds, to let us know
